@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: docker-mysql-1
+    environment:
+      MYSQL_ROOT_PASSWORD: Er142308
+      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"  # Use esta linha se desejar uma senha vazia (não recomendado)
+      # MYSQL_RANDOM_ROOT_PASSWORD: "yes"  # Use esta linha para uma senha aleatória
+      # MYSQL_DATABASE: yourdatabase  # (opcional) Nome do banco de dados a ser criado
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
