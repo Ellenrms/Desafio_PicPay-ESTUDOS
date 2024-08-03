@@ -9,6 +9,8 @@ import com.ellenmateus.DTO.DTOWallet;
 import com.ellenmateus.entity.Wallet;
 import com.ellenmateus.service.WalletService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class WalletController {
 
@@ -20,7 +22,7 @@ public class WalletController {
 	}
 
 	@PostMapping("/wallets")
-	public ResponseEntity<Wallet> createWallet(@RequestBody DTOWallet dto) {
+	public ResponseEntity<Wallet> createWallet(@RequestBody @Valid DTOWallet dto) {
 
 		var wallet = walletService.createWallet(dto);
 

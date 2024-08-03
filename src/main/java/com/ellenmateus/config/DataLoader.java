@@ -17,6 +17,7 @@ public class DataLoader implements CommandLineRunner {
 		this.walletTypeRepository = walletTypeRepository;
 	}
 	
+	@Override
 	public void run(String... args)throws Exception{
 		Arrays.stream(WalletType.Enum.values())
 		.forEach(walletType -> walletTypeRepository.save(walletType.get()));
