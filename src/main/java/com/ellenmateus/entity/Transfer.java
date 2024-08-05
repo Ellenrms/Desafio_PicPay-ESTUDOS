@@ -15,60 +15,60 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_transfer")
 public class Transfer {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private UUID id;
-	
-	
-	@ManyToOne
-	@JoinColumn(name = "wallet_sender_id")
-	private Wallet sender;
-	
-	@ManyToOne
-	@JoinColumn(name = "wallet_receiver_id")
-	private Wallet receiver;
-	
-	@Column(name = "value")
-	private BigDecimal value;
-	
 
-	public Transfer() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
-	
-	public UUID getId() {
-		return id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "wallet_sender_id")
+    private Wallet sender;
 
-	public void setId(UUID id) {
-		this.id = id;
-	}
+    @ManyToOne
+    @JoinColumn(name = "wallet_receiver_id")
+    private Wallet receiver;
 
-	public Wallet getSender() {
-		return sender;
-	}
+    @Column(name = "value")
+    private BigDecimal value;
 
-	public void setSender(Wallet sender) {
-		this.sender = sender;
-	}
+    public Transfer() {
+    }
 
-	public Wallet getReceiver() {
-		return receiver;
-	}
+    public Transfer(Wallet sender, Wallet receiver, BigDecimal value) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.value = value;
+    }
 
-	public void setReceiver(Wallet receiver) {
-		this.receiver = receiver;
-	}
+    public UUID getId() {
+        return id;
+    }
 
-	public BigDecimal getValue() {
-		return value;
-	}
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-	public void setValue(BigDecimal value) {
-		this.value = value;
-	}
-	
-	
-	
+    public Wallet getSender() {
+        return sender;
+    }
+
+    public void setSender(Wallet sender) {
+        this.sender = sender;
+    }
+
+    public Wallet getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(Wallet receiver) {
+        this.receiver = receiver;
+    }
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
 }

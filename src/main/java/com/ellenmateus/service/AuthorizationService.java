@@ -2,8 +2,8 @@ package com.ellenmateus.service;
 
 import org.springframework.stereotype.Service;
 
+import com.ellenmateus.DTO.DTOTransfer;
 import com.ellenmateus.client.AuthorizationClient;
-import com.ellenmateus.entity.Transfer;
 import com.ellenmateus.exception.PicPayException;
 
 @Service
@@ -15,7 +15,7 @@ public class AuthorizationService {
 		this.authorizationClient = authorizationClient;
 	}
 
-	public boolean isAuthorized(Transfer transfer) {
+	public boolean isAuthorized(DTOTransfer transfer) {
 			var resp = authorizationClient.isAutorized();
 			
 			if (resp.getStatusCode().isError()) {

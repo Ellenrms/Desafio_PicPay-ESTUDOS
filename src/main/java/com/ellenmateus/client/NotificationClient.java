@@ -7,12 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.ellenmateus.entity.Transfer;
 
-@FeignClient(
-		name = "NotificationClient",
-		url = "${client.notification-service.url}"
-		)
-
-
+@FeignClient(name = "NotificationClient",
+			 url = "${client.notification-service.url}")
 public interface NotificationClient {
 	
 	@PostMapping
